@@ -15,6 +15,7 @@ import argparse
 
 from google import genai
 from google.genai import errors
+from google.genai.types import GenerateContentConfig
 
 from app.config import MODEL, api_error_message, get_api_key
 
@@ -34,13 +35,22 @@ def ask(question: str, chat) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="会話履歴を保ってLLMに質問する")
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=1.0,
+        help="回答のランダムさ（0.0〜2.0、既定値: 1.0）",
+    )
     parser.add_argument("question", nargs="?", default=DEFAULT_QUESTION, help="最初の質問")
     args = parser.parse_args()
 
     print(f"[model] {MODEL}")
     try:
         client = genai.Client(api_key=get_api_key())
-        chat = client.chats.create(model=MODEL)
+        chat = client.chats.create(
+            model=MODEL,
+            config=GenerateContentConfig(temperature=args.temperature),
+        )
         question = args.question
         while True:
             print(f"[質問] {question}\n")
