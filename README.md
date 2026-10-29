@@ -88,3 +88,18 @@ AIE_MODEL=gemini-3.5-flash uv run python -m app.ask "LoRAとは何ですか？"
 ```
 
 無料枠には1分あたり・1日あたりのリクエスト上限があります。上限は [Gemini API のレート制限のページ](https://ai.google.dev/gemini-api/docs/rate-limits) で確認してください。
+
+### モデルの応答時間・トークン数を比較する
+
+`app.benchmark` は、指定した質問とモデルの組み合わせを順番に実行し、応答時間・入出力トークン数・回答をCSVに出力します。次の例は2モデル×2質問で、合計4回APIを呼び出します。
+
+```bash
+uv run python -m app.benchmark \
+  --model gemini-3.5-flash-lite --model gemini-3.5-flash \
+  --question "AIエンジニアリングとは何ですか？" \
+  --question "LoRAとは何ですか？" > results.csv
+```
+
+`--model` を省略すると既定モデル（`AIE_MODEL` の設定があればそのモデル）を使います。`--repeat 3` のように繰り返し回数も指定できます。実行予定のリクエスト数は標準エラーに表示されます。レート制限で途中終了した場合も、完了済みの測定結果はCSVに残ります。
+
+各組み合わせの実行は独立したAPIリクエストです。無料枠の上限はモデルやプロジェクトにより異なり、一定時間あたりのリクエスト数・トークン数や日次上限などが関係します。実行数を増やすと上限に達しやすくなるため、上限は [Gemini API のレート制限のページ](https://ai.google.dev/gemini-api/docs/rate-limits) で確認してください。応答時間はネットワークや混雑状況にも左右されるため、結果を比較するときは同じ質問・設定で複数回測定し、平均だけでなくばらつきも見てください。
