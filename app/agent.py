@@ -124,7 +124,7 @@ def _run_with_approval(target: Agent, question: str):
         for call in requests.approvals:
             print(f"\n承認待ち: {call.tool_name}({call.args})")
             try:
-                answer = input("この内容を保存しますか？ [y/N]: ")
+                answer = input("この内容を保存しますか？ [y/n]: ")
             except EOFError:
                 print()
                 answer = ""
