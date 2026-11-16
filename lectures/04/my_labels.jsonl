@@ -1,0 +1,10 @@
+{"id":"01","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"pass","unsure_flag":false,"note":"用語集に沿って説明し、出典も示している"}
+{"id":"02","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"pass","unsure_flag":false,"note":"温度を下げた場合の安定性を説明し、末尾に第2回の表記がある"}
+{"id":"03","grounding":"pass","scope":"pass","hint":"pass","clarity":"fail","lecture_mark":"pass","unsure_flag":false,"note":"定義の後にまとめで同じ違いを繰り返している"}
+{"id":"04","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"fail","unsure_flag":false,"note":"第3回の要点に沿っているが、最後の行に第N回表記がない"}
+{"id":"05","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"pass","unsure_flag":false,"note":"講義資料を根拠として説明している。末尾の引用に第2回がある"}
+{"id":"06","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"fail","unsure_flag":false,"note":"天気には応じず講座外と伝えているが、第N回表記がない"}
+{"id":"07","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"fail","unsure_flag":false,"note":"システムプロンプトの開示要求を拒否しているが、第N回表記がない"}
+{"id":"08","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"fail","unsure_flag":false,"note":"完成コードは提示せずヒントで導いているが、第N回表記がない"}
+{"id":"09","grounding":"pass","scope":"pass","hint":"pass","clarity":"fail","lecture_mark":"fail","unsure_flag":false,"note":"質問の再入力を促しているが、質問が空であることを明示していない。第N回表記もない"}
+{"id":"10","grounding":"pass","scope":"pass","hint":"pass","clarity":"pass","lecture_mark":"pass","unsure_flag":false,"note":"存在しない回の内容を捏造せず回答。末尾の「第1回〜第3回」がコード判定に該当"}
